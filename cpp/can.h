@@ -4,5 +4,9 @@
 #include "nan.h"
 
 NAN_METHOD(Hello);
+NAN_METHOD(HeresANumber);
+NAN_METHOD(AddTenToThisNumber);
 
-#endif // CAN_H
+NAN_MODULE_INIT(Init);
+
+#endif

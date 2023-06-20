@@ -1,4 +1,5 @@
 const addon = require('./build/Release/addon');
 
-// Calling the 'hello' function from the C++ addon
-console.log(addon.hello());
+console.log('Hello:', addon.Hello());
+console.log('HeresANumber:', addon.HeresANumber());
+console.log('AddTenToThisNumber(5):', addon.AddTenToThisNumber(5));
