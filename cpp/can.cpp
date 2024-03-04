@@ -1,42 +1,22 @@
 #include "can.h"
 
-NAN_METHOD(Hello) {
+#include <sys/socket.h>
+#include <linux/can.h>
+#include <net/if.h>
+
+#define CAN_INTERFACE "can0"
+#define CAN_FRAME_SIZE 8
+
+NAN_METHOD(RetrieveCanMessage) {
   Nan::HandleScope scope;
 
-  v8::Local<v8::String> result = Nan::New("Reee! This is from C++!").ToLocalChecked();
+  v8::Local<v8::String> result = Nan::New("Reee test123").ToLocalChecked();
   info.GetReturnValue().Set(result);
-}
-
-NAN_METHOD(HeresANumber) {
-  Nan::HandleScope scope;
-  
-  v8::Local<v8::Int32> result = Nan::New(77);
-  info.GetReturnValue().Set(result);
-}
-
-NAN_METHOD(AddTenToThisNumber) {
-  Nan::HandleScope scope;
-
-  if (info.Length() < 1 || !info[0]->IsNumber()) {
-    Nan::ThrowTypeError("Invalid arguments. Expected an integer.");
-    return;
-  }
-
-  int number = info[0].As<v8::Int32>()->Value();
-  int result = number + 10;
-
-  info.GetReturnValue().Set(Nan::New(result));
 }
 
 NAN_MODULE_INIT(Init) {
-  Nan::Set(target, Nan::New("Hello").ToLocalChecked(),
-    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(Hello)).ToLocalChecked());
-    
-  Nan::Set(target, Nan::New("HeresANumber").ToLocalChecked(),
-    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(HeresANumber)).ToLocalChecked());
-    
-  Nan::Set(target, Nan::New("AddTenToThisNumber").ToLocalChecked(),
-    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(AddTenToThisNumber)).ToLocalChecked());
+  Nan::Set(target, Nan::New("RetrieveCanMessage").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(RetrieveCanMessage)).ToLocalChecked());
 }
 
-NODE_MODULE(addon, Init)
+NODE_MODULE(WillsNodeCan, Init)

@@ -1,5 +1,9 @@
-const addon = require('./build/Release/addon');
+const Test = require('./build/Release/Test');
 
-console.log('Hello:', addon.Hello());
-console.log('HeresANumber:', addon.HeresANumber());
-console.log('AddTenToThisNumber(5):', addon.AddTenToThisNumber(5));
+console.log('Hello:', Test.Hello());
+console.log('HeresANumber:', Test.HeresANumber());
+console.log('AddTenToThisNumber(5):', Test.AddTenToThisNumber(5));
+
+const WillsNodeCan = require('./build/Release/WillsNodeCan');
+
+console.log('Hello:', WillsNodeCan.RetrieveCanMessage());
