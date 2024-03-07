@@ -1,5 +1,16 @@
-const addon = require('./build/Release/addon');
+const WillsNodeCAN = require('./build/Release/WillsNodeCAN');
 
-console.log('Hello:', addon.Hello());
-console.log('HeresANumber:', addon.HeresANumber());
-console.log('AddTenToThisNumber(5):', addon.AddTenToThisNumber(5));
+setInterval(() => {
+  console.log('test1');
+  var result = WillsNodeCAN.ReceivedCANData();
+  console.log('test2');
+}, 1000);
+
+// function DumpCANData() {
+//   var results = WillsNodeCAN.ReceivedCANData();
+//   console.log('CAN output: ');
+//   console.log('CAN output: ', results);
+//   setTimeout(DumpCANData, 1000);
+// }
+
+// DumpCANData();
