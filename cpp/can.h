@@ -3,9 +3,7 @@
 
 #include "nan.h"
 
-NAN_METHOD(Hello);
-NAN_METHOD(HeresANumber);
-NAN_METHOD(AddTenToThisNumber);
+NAN_METHOD(RetrieveCanMessage);
 
 NAN_MODULE_INIT(Init);
 
