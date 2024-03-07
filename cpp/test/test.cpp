@@ -39,4 +39,4 @@ NAN_MODULE_INIT(Init) {
     Nan::GetFunction(Nan::New<v8::FunctionTemplate>(AddTenToThisNumber)).ToLocalChecked());
 }
 
-NODE_MODULE(Test, Init)
+NODE_MODULE(testAddon, Init)
